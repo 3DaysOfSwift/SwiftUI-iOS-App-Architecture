@@ -1,0 +1,119 @@
+//
+//  ThemeManager.swift
+//  123Calc
+//
+//  Created by 3DaysOfSwift.com on 23/09/2025.
+//
+//  3DaysOfSwift.com                → All rights reserved
+//  Website                         → https://www.3DaysOfSwift.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of 3DaysOfSwift.com developers!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   It's a color theme manager, it stores all of our color themes.
+//   Architectural Layer: Business Logic Layer
+//
+// -------------------------------------------------------------------------------------------
+
+import Foundation
+import Observation
+
+class ThemeManager: Observable {
+    
+    // MARK: - Properties
+
+    private let dataStore = DataStoreManager(key: ThemeManager.keys.dataStore)
+
+    // MARK: - 👇🏽 The Singleton Design Pattern
+
+    static let shared = ThemeManager() // → 💡 Tip: This is a Singleton. The singleton design pattern is being phased out of commercial projects, however you WILL see it in industry! So let's use it in this project and gain some experience of how it works. 😃
+
+    // MARK: - Theme Options
+
+    private(set) var themes: [CalculatorTheme] = []
+
+    // MARK: - Accessing The Current Theme
+
+    private var savedTheme: CalculatorTheme?
+    private(set) var currentTheme: CalculatorTheme
+    
+    // MARK: - Initialiser
+
+    init() {
+        currentTheme = themes.first ?? ThemeLoader().appBrandTheme
+        savedTheme = currentTheme
+        populateSelectionOfThemes()
+        let _ = restoreSavedTheme()
+    }
+
+    // MARK: - Populate Theme Selection
+
+    private func populateSelectionOfThemes() {
+        themes = ThemeLoader().allThemes
+    }
+
+    // MARK: - Save & Restore From Disk
+
+    private func saveThemeToDisk(_ theme: CalculatorTheme) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(theme) {
+            dataStore.set(encoded)
+        }
+    }
+
+    private func restoreSavedTheme() -> Bool {
+        if let previousTheme = readSavedThemeFromDisk() {
+            savedTheme = previousTheme
+            return true
+        }
+        return false
+    }
+
+    private func readSavedThemeFromDisk() -> CalculatorTheme? {
+        guard let savedTheme = dataStore.getValue() as? Data else {
+            return nil
+        }
+
+        let decoder = JSONDecoder()
+        return try? decoder.decode(CalculatorTheme.self, from: savedTheme)
+    }
+
+    // MARK: - Changing Themes
+
+    func moveToNextTheme() {
+        let themeID = currentTheme.id
+        let index = themes.firstIndex { calculatorTheme in
+            calculatorTheme.id == themeID
+        }
+
+        // → The user is using a theme which has been removed. Reset to the first theme.
+        guard let indexOfExistingTheme = index else {
+            if let firstTheme = themes.first {
+                updateSystemWithTheme(firstTheme)
+            }
+            return
+        }
+
+        // → Move to the next theme
+        var nextThemeIndex = indexOfExistingTheme + 1
+        if nextThemeIndex > themes.count - 1 {
+            nextThemeIndex = 0
+        }
+        guard let nextTheme = themes[safe: nextThemeIndex] else {
+            return
+        }
+
+        updateSystemWithTheme(nextTheme)
+    }
+
+    // MARK: - Set A New Theme
+
+    private func updateSystemWithTheme(_ theme: CalculatorTheme) {
+        savedTheme = theme
+        saveThemeToDisk(theme)
+    }
+}

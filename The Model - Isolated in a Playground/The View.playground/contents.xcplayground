@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='macos' display-mode='raw' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='What is the Model?'/>
+        <page name='iOS Calculator Source Code'/>
+        <page name='The View'/>
+        <page name='Another View'/>
+        <page name='Terms And Conditions'/>
+        <page name='Empty Coding Area'/>
+    </pages>
+</playground>

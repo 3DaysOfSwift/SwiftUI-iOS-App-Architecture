@@ -1,0 +1,39 @@
+//
+//  Constants.swift
+//  123Calc
+//
+//  Created by 3DaysOfSwift.com on 23/09/2025.
+//
+//  3DaysOfSwift.com                → All rights reserved
+//  Website                         → https://www.3DaysOfSwift.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of 3DaysOfSwift.com developers!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   It's a centralised area to store values. Here we can store a list of constant values
+//   that we don't want to repeat or duplicate throughout our codebase.
+//
+// -------------------------------------------------------------------------------------------
+
+import Foundation
+import UIKit
+
+// MARK: - ThemeManager
+
+extension ThemeManager {
+    enum keys {
+        static let dataStore = "3DaysOfSwift.com.calc.ThemeManager.theme"
+    }
+}
+
+// MARK: - Calculator
+
+extension Calculator {
+    enum keys {
+        static let dataStore = "3DaysOfSwift.com.calc.CalculatorEngine.total"
+    }
+}
