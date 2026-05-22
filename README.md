@@ -1,20 +1,46 @@
-![3 Days of Swift](readme-images/3DaysOfSwiftHeader.png) ©️ 2026
-
-Copyright 2026 [3DaysOfSwift.com](https://www.3DaysOfSwift.com)
-
-## This Repo
-This repository is one of the many online repos we have containing educational content to teach & learn Swift. Enjoy!
-
-## Official Swift Book - The Swift Programming Language  (TSPL)
-[Swift 5.7 iBooks ePub](https://books.apple.com/book-series/swift-programming-series/id888896989) - No longer supported - AppleBooks version
-
-[Swift.org HTML version](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/) - Supported HTML version
-
-[Our Xcode Playground Conversion](https://www.3daysofswift.com/book) - Downloadable v5.7 as Xcode playgrounds
+![3 Days of Swift](readme-images/3DaysOfSwift-Header.png) 
+© 2026 [3DaysOfSwift.com](https://www.3DaysOfSwift.com). All rights reserved.
 
 
-## Official Book Contents
-Apple created [TSPL](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics) to teach the following language features.
+## This Repository
+
+This repository contains two SwiftUI Xcode projects alongside two supporting Xcode playgrounds designed to help developers understand the architectural patterns commonly discussed in iOS interviews — MV and MVVM. MVC can be found in another UIKit-based repo. 
+
+These projects and playgrounds focus on separating application logic from the user interface, helping developers better understand how Swift applications can be structured for clarity and maintainability.
+
+
+## 2x SwiftUI Xcode Projects (MV & MVVM)
+
+Included within this repository are two SwiftUI Xcode projects demonstrating both MV and MVVM architecture patterns.
+
+The MV project demonstrates a lightweight architecture suitable for smaller applications and simple prototypes, while the MVVM project introduces a more scalable structure commonly used in larger commercial applications.
+
+Explore both projects to compare how models, business logic, and views can be organised to improve readability, stability, and long-term maintainability.
+
+
+## The Model Playground
+
+The shared application model used throughout both Xcode projects has been isolated into this dedicated Xcode playground.
+
+This playground focuses entirely on the model, making it easier to understand how application data and business logic can exist independently from the user interface.
+
+
+## The View Playground
+
+The View is the presentation layer of the application and this playground demonstrates how views can be separated from the underlying model logic.
+
+A shared Model.swift file stored within the Sources folder is used to separate the model implementation from the playground presentation code, helping demonstrate how SwiftUI views can interact with underlying program it represents.
+
+
+------------------------
+
+Download this Xcode playground at [3DaysOfSwift.com](https://www.3DaysOfSwift.com).
+
+------------------------
+
+
+## Official Swift Documentation
+Apple created [The Swift Programming Language (TSPL)](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics) book to discuss and describe the following language features.
 
 1. [The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics)
 2. [Basic Operators](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators)
@@ -46,84 +72,17 @@ Apple created [TSPL](https://docs.swift.org/swift-book/documentation/the-swift-p
 28. [Access Control](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol)
 29. [Advanced Operators](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators)
 
-## Swift.org Online Version of TSPL
-Swift.org uses the contents of the book as a Language Guide to document each main language feature.
-
-![Swift Language Guide](readme-images/Swift-org-language-guide.png)
-
-[Officially supported HTML version](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics)
-
-The official html version of the Swift Language Guide can be found [here](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics) and contains quite a huge amount of text. This playground of common Swift language features is small, light and focusses on executable code examples.
-
-Simple & easy! But also, not the complete picture. [Learn more features](https://www.3daysofswift.com).
-
-
-## What Is It?
-An Xcode playground of executable code examples for all main Swift language features. Each playground page is organised by language feature. Developers should be able to quickly find the feature and execute the given example to refresh their knowledge of Swift syntax and how the code needs to be written to function.
-
-
-
-## How To Become A Swift Engineer
-Most companies who offer iOS developer jobs require maintenance for existing products (apps written in Swift). 
-
-Today, a fast strategy to gain a job as a Junior iOS Developer may be to first learn the programming language (in order to pass an interview) and then learn UI and apps while employed and working on an existing product.
-
-1. Learn Swift
-2. Apply for jobs - fix bugs for existing products in Xcode
-3. Learn about UI - maybe use A.I. to build UI
-4. Learn about iOS apps 
-
-
-
-## Why Learn Swift?
-Wouldn't it make sense to build a career writing software for the worlds no.1 most profitable company? 
-
-According to Fortune Global’s 500 list in 2020, Apple Inc was the global most profitable company reporting an annual profit of $57.41 billion US dollars. In a world with an ever increasing demand for smart devices iOS Developers will never be without work. 
-
-In fact, those who study computer programming languages used by companies such as Apple, Microsoft, Google and Amazon will never be short of job offers and look forward to a very profitable and successful career.
-
-[Swift](https://docs.swift.org) is the latest programming language chosen by Apple to write apps and  supporting frameworks for all iOS and macOS products. It was first released in June 2014 as a replacement for it's predecessor Objective-C. 
-
-
-
-## Recommended Learning Path
-
-**Step 1**: Learn the Swift programming language.
-
-**Step 2**: Learn about code architecure and how to structure code.
-
-**Step 3**: Learn about UI and iOS apps (while employed).
-
-
-
-## Recommended Studying
-We recommend studying the following Swift language features to apply for a job as a Junior iOS Developer.
-
-1. [The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics)
-2. [Control Flow](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow)
-3. [Optionals](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/optionalchaining)
-4. [Functions](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions) and [Closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures)
-5. [Classes](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures)
-6. [Structs](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures)
-7. [Enums](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations)
-8. [ARC](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting) (Automatic Reference Counting)
-9. [Extensions](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions)
-10. [Protocols](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols)
-11. [Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency)
-12. [Error Handling](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling)
-13. [Generics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics)
-
-
+Read our Xcode playground conversion only at [3DaysOfSwift.com](https://www.3DaysOfSwift.com)
 
 --------------------------
 
 
-![3 Days Of Swift Logo](readme-images/3DaysOfSwiftFooter.png) 
+![3 Days of Swift](readme-images/3DaysOfSwift-Header.png)
 
-[Website](https://www.3DaysOfSwift.com)
+[Website](https://www.3DaysOfSwift.com) | [Subreddit Community](https://www.reddit.com/r/3DaysOfSwift)
 
-Copyright 2026 [3DaysOfSwift.com](https://www.3DaysOfSwift.com). All rights reserved. 
+© 2026 [3DaysOfSwift.com](https://www.3DaysOfSwift.com). All rights reserved.
 
-Welcome to our community of [3DaysOfSwift.com](https://www.3DaysOfSwift.com) developers!
+Welcome to the [3DaysOfSwift.com](https://www.3DaysOfSwift.com) community of iOS developers!
 
-🧕🏻👩🏿‍💻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💻👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🧑🏿‍💻🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️🧑🏿‍💻
+👩🏿‍💻🧑🏻‍💻🙋🏿‍♀️🧑🏼‍💻👩🏼‍💼👩🏽‍💻🧑🏿‍💻💁🏼‍♀️👩🏼‍💻👨🏼‍💻👨🏽‍💻🙋🏽‍♂️👩🏻‍💻🧑🏾‍💻👩🏻‍💻👩🏾‍💻👨🏼‍💻🙋🏻‍♂️👨🏿‍💻👩🏿‍💻👨🏻‍💻🙋🏻‍♀️👩🏼‍💻🧑🏿‍💻🙋🏼‍♂️
