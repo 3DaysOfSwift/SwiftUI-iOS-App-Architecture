@@ -1,5 +1,5 @@
 //
-//  UserPreferences.swift
+//  UserPreference.swift
 //  123Calc
 //
 //  © 2026 3DaysOfSwift.com
@@ -21,28 +21,47 @@
 
 import Foundation
 
-struct UserPreference {
+// TODO: Rename this to UserPreferenceStoring
+protocol PreferencePersistable<T> {
+    associatedtype T: Codable
+    
+    func set(_ value: T)
+
+    func get() -> T?
+
+    func delete()
+}
+
+struct UserPreference<T: Codable>: PreferencePersistable {
+    
     // MARK: - Unique Key
 
     let key: String
 
     // MARK: - Storing Data
 
-    func set(_ value: Any) {
+    func set(_ value: T) {
         // NOTE: UserDefaults is not a data store for actual data,
-        // but rather somewhere to store what tab index the user selected
+        // but rather somewhere to store user preferences like a selected tab bar index
         // or some simple app-related information to restore on the next launch of the app.
         // Use SwiftData to store actual data such as received json from a server.
-        UserDefaults.standard.set(value, forKey: key)
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(value) {
+            UserDefaults.standard.set(encoded, forKey: key)
+        }
     }
 
-    func getValue() -> Any? {
-        UserDefaults.standard.object(forKey: key)
+    func get() -> T? {
+        guard let value = UserDefaults.standard.object(forKey: key) as? Data else {
+            return nil
+        }
+        let decoder = JSONDecoder()
+        return try? decoder.decode(T.self, from: value)
     }
 
     // MARK: - Deleting Data
 
-    func deleteValue() {
+    func delete() {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }

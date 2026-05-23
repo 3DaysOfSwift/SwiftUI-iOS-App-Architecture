@@ -17,31 +17,27 @@ import Foundation
 import Observation
 
 // NOTE: Calculator uses dependency injection to be initialized, which is a good architectural decision, but also makes it difficult to understand how to properly instantiate the class. It also feels a bit weird and perhaps over-the-top too. To make life easier and to simplify the code, we added a convenience init function to be used for standard setup for the model. i.e. Calculator() can now be used outside of testing and injecting in different dependencies.
-// This DI (dependency injection) feels a little like over-engineering for such a small project. This is true of many architectural patterns and principles. Perhaps only use "what you need, if you need it" and don't follow architectural rules just for the sake of it. What do you think about how-we-used it here?
 extension Calculator {
     
     convenience init() {
-        // here are the concrete types to be instantiated in the designated initializer of the class
-        let userPreference = UserPreference(key: Calculator.keys.previousEquation)
-        self.init(userPreference) {
-            EquationBuilder(equation: Equation())
-        }
+        let userPreference = UserPreference<Equation>(key: Calculator.keys.previousEquation)
+        self.init(userPreference)
     }
 }
 
-// We could name this class "Model" which represents the "System" or "thing" that models the behaviour without any UI connected to it.
+// We could name this class "Model" which represents the "System" or "thing" that models the behaviour of the entire program without any UI connected to it.
 // Model does not mean Data Model. It means the whole system or non-UI program that functions without any visual representation.
 @Observable
 class Calculator: CalculatorAPI {
+    
     // MARK: - Properties
 
-    private(set) var history: [EquationRepresentable] = []
-    private var equationBuilder: EquationBuilding
-    private let equationBuilderProvider: () -> EquationBuilding
+    private(set) var history: [Equation] = []
+    private var equationBuilder: EquationBuilder
 
     // MARK: - Managers
 
-    private let userPreference: UserPreference
+    private let userPreferenceForLastEquation: any PreferencePersistable<Equation>
 
     // MARK: - Display
 
@@ -66,16 +62,20 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Initialiser
 
-    init(_ userPreference: UserPreference, _ equationBuilder: @escaping (() -> EquationBuilding)) {
-        self.userPreference = userPreference
-        self.equationBuilderProvider = equationBuilder
-        self.equationBuilder = equationBuilder()
+    init(_ userPreference: any PreferencePersistable<Equation>) {
+        self.userPreferenceForLastEquation = userPreference
+        self.equationBuilder = EquationBuilder(equation: Equation())
     }
     
     deinit {
         
     }
-
+    
+    private func newEquationBuilder() -> EquationBuilder {
+        // Tip: 💡 One line expressions dont have to explicitly use the return keyword. The compiler adds it.
+        EquationBuilder(equation: Equation())
+    }
+    
     // MARK: - Interaction API
 
     func clearHistory() {
@@ -83,7 +83,7 @@ class Calculator: CalculatorAPI {
     }
 
     func clearPressed() {
-        equationBuilder = equationBuilderProvider()
+        equationBuilder = newEquationBuilder()
         updateTextToDisplay()
         deleteSavedSession()
     }
@@ -102,7 +102,7 @@ class Calculator: CalculatorAPI {
 
     func decimalPressed() {
         if equationBuilder.isCompleted {
-            equationBuilder = equationBuilderProvider()
+            equationBuilder = newEquationBuilder()
         }
         equationBuilder.applyDecimalPoint()
         updateTextToDisplay()
@@ -140,7 +140,7 @@ class Calculator: CalculatorAPI {
 
     func equalsPressed() {
         if equationBuilder.isCompleted {
-            var newEquationBuilder = equationBuilderProvider()
+            let newEquationBuilder = newEquationBuilder()
             newEquationBuilder.lhs = equationBuilder.result ?? Decimal.zero
             newEquationBuilder.operation = equationBuilder.operation
             newEquationBuilder.rhs = equationBuilder.rhs
@@ -167,14 +167,14 @@ class Calculator: CalculatorAPI {
         saveSession()
     }
 
-    private func appendToHistoryLog(_ equationBuilder: EquationBuilding) {
+    private func appendToHistoryLog(_ equationBuilder: EquationBuilder) {
         guard equationBuilder.allowRecordingToTheHistoryLog else { return }
         history.append(equationBuilder.equation)
     }
 
     // MARK: - Print To Console
 
-    private func printEquationToDebugConsole(_ equationBuilder: EquationBuilding) {
+    private func printEquationToDebugConsole(_ equationBuilder: EquationBuilder) {
         print(equationBuilder.generatePrintout)
     }
 
@@ -186,7 +186,7 @@ class Calculator: CalculatorAPI {
               number >= 0 else { return }
 
         if equationBuilder.isCompleted {
-            equationBuilder = equationBuilderProvider()
+            equationBuilder = newEquationBuilder()
         }
         equationBuilder.enterNumber(number)
         updateTextToDisplay()
@@ -206,7 +206,7 @@ class Calculator: CalculatorAPI {
     }
 
     private func populateEquationWithPreviousResult(_ continueEditingResult: Bool = false) {
-        var newEquationBuilder = equationBuilderProvider()
+        let newEquationBuilder = newEquationBuilder()
         newEquationBuilder.lhs = equationBuilder.result ?? Decimal(0)
 
         if continueEditingResult == false {
@@ -244,7 +244,7 @@ class Calculator: CalculatorAPI {
             return false
         }
 
-        var newEquationBuilder = equationBuilderProvider()
+        let newEquationBuilder = newEquationBuilder()
         newEquationBuilder.lhs = Decimal(1)
         newEquationBuilder.multiply()
         newEquationBuilder.rhs = lastExecutedResult
@@ -255,26 +255,22 @@ class Calculator: CalculatorAPI {
     }
 
     private func saveSession() {
-        guard equationBuilder.allowRecordingToTheHistoryLog else { return }
-
         guard
+            equationBuilder.allowRecordingToTheHistoryLog,
             isEquationSafeToBeSaved(equationBuilder) == true,
             equationBuilder.result?.isEqual(to: .zero) == false
         else {
             return
         }
 
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(equationBuilder.equation) {
-            userPreference.set(encoded)
-        }
+        userPreferenceForLastEquation.set(equationBuilder.equation)
     }
 
     private func deleteSavedSession() {
-        userPreference.deleteValue()
+        userPreferenceForLastEquation.delete()
     }
 
-    private func isEquationSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
+    private func isEquationSafeToBeSaved(_ equationBuilder: EquationBuilder) -> Bool {
         guard equationBuilder.containsNans == false, // → prevent a runtime error when encoding nans
               let _ = equationBuilder.result,
               equationBuilder.isCompleted
@@ -285,12 +281,7 @@ class Calculator: CalculatorAPI {
     }
 
     private func readSavedEquationFromDisk() -> Equation? {
-        guard let savedEquation = userPreference.getValue() as? Data else {
-            return nil
-        }
-
-        let decoder = JSONDecoder()
-        return try? decoder.decode(Equation.self, from: savedEquation)
+        userPreferenceForLastEquation.get()
     }
 
     // MARK: - Copy & Paste
@@ -299,19 +290,19 @@ class Calculator: CalculatorAPI {
 
     func pasteInNumber(from decimal: Decimal) {
         if equationBuilder.isCompleted {
-            equationBuilder = equationBuilderProvider()
+            equationBuilder = newEquationBuilder()
         }
 
         equationBuilder.pasteIn(decimal)
         updateTextToDisplay()
     }
 
-    func pasteInNumber(from mathEquation: EquationRepresentable) {
+    func pasteInNumber(from mathEquation: Equation) {
         guard let result = mathEquation.result else {
             return
         }
 
-        equationBuilder = equationBuilderProvider()
+        equationBuilder = newEquationBuilder()
         pasteInNumber(from: result)
     }
 }

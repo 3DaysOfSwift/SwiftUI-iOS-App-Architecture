@@ -21,7 +21,7 @@ class ThemeManager: ObservableObject {
     
     // MARK: - Properties
 
-    private let userPreference: UserPreference
+    private let userPreferenceForCurrentTheme: UserPreference<CalculatorTheme>
 
     // MARK: - Theme Options
 
@@ -34,8 +34,8 @@ class ThemeManager: ObservableObject {
     
     // MARK: - Initialiser
 
-    init(_ userPreference: UserPreference) {
-        self.userPreference = userPreference
+    init(_ userPreferenceForSavedTheme: UserPreference<CalculatorTheme>) {
+        self.userPreferenceForCurrentTheme = userPreferenceForSavedTheme
         currentTheme = themes.first ?? ThemeLoader().appBrandTheme
         savedTheme = currentTheme
         populateSelectionOfThemes()
@@ -51,27 +51,15 @@ class ThemeManager: ObservableObject {
     // MARK: - Save & Restore From Disk
 
     private func saveThemeToDisk(_ theme: CalculatorTheme) {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(theme) {
-            userPreference.set(encoded)
-        }
+        userPreferenceForCurrentTheme.set(theme)
     }
 
     private func restoreSavedTheme() -> Bool {
-        if let previousTheme = readSavedThemeFromDisk() {
+        if let previousTheme = userPreferenceForCurrentTheme.get() {
             savedTheme = previousTheme
             return true
         }
         return false
-    }
-
-    private func readSavedThemeFromDisk() -> CalculatorTheme? {
-        guard let savedTheme = userPreference.getValue() as? Data else {
-            return nil
-        }
-
-        let decoder = JSONDecoder()
-        return try? decoder.decode(CalculatorTheme.self, from: savedTheme)
     }
 
     // MARK: - Changing Themes

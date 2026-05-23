@@ -47,6 +47,7 @@
 		48EB96922A377988003BA4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96912A377988003BA4BA /* Assets.xcassets */; };
 		48EB96952A377988003BA4BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96942A377988003BA4BA /* Preview Assets.xcassets */; };
 		7B15EECA2F90DEAE003EDEB4 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15EEC92F90DEAE003EDEB4 /* CalculatorView.swift */; };
+		7B2116662FC1A03900E0B70A /* UserPreferenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		48EB96942A377988003BA4BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48EB969A2A377988003BA4BA /* 123CalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 123CalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B15EEC92F90DEAE003EDEB4 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,15 +170,15 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
-		482E484F2ADEFA0100A3F7D2 /* User Preferences */ = {
+		482E484F2ADEFA0100A3F7D2 /* Stored User Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				482E48502ADEFA0100A3F7D2 /* UserPreference.swift */,
 			);
-			path = "User Preferences";
+			path = "Stored User Preferences";
 			sourceTree = "<group>";
 		};
-		482E48652ADEFA2A00A3F7D2 /* UI */ = {
+		482E48652ADEFA2A00A3F7D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				7B15EEC72F90DCEF003EDEB4 /* App */,
@@ -184,7 +186,7 @@
 				48EB96932A377988003BA4BA /* View Previews */,
 				482E486A2ADF05DA00A3F7D2 /* SwiftUI Extensions */,
 			);
-			path = UI;
+			path = View;
 			sourceTree = "<group>";
 		};
 		482E486A2ADF05DA00A3F7D2 /* SwiftUI Extensions */ = {
@@ -265,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				482E48662ADEFA8F00A3F7D2 /* AppConstants.swift */,
-				482E48652ADEFA2A00A3F7D2 /* UI */,
+				482E48652ADEFA2A00A3F7D2 /* View */,
 				7B15EEC62F90DC58003EDEB4 /* Model */,
 				482E48372ADEFA0100A3F7D2 /* Swift Language Extensions */,
 			);
@@ -283,6 +285,7 @@
 		48EB969D2A377988003BA4BA /* 123CalcTests */ = {
 			isa = PBXGroup;
 			children = (
+				7B2116672FC1A04400E0B70A /* Mocks */,
 				482E48782ADF35B300A3F7D2 /* Math */,
 				482E48722ADF35B300A3F7D2 /* Equals Button */,
 				482E487E2ADF35B300A3F7D2 /* Numeric Pin Pad */,
@@ -299,7 +302,7 @@
 				482E483E2ADEFA0100A3F7D2 /* Calculator.swift */,
 				482E483D2ADEFA0100A3F7D2 /* Calc Components */,
 				482E48412ADEFA0100A3F7D2 /* Calc Color Themes */,
-				482E484F2ADEFA0100A3F7D2 /* User Preferences */,
+				482E484F2ADEFA0100A3F7D2 /* Stored User Preferences */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,14 @@
 				7B15EEC92F90DEAE003EDEB4 /* CalculatorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7B2116672FC1A04400E0B70A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +468,7 @@
 				484F8E902ADF367F0071062F /* ClearButtonTests.swift in Sources */,
 				484F8E9A2ADF367F0071062F /* MultiplyTests.swift in Sources */,
 				484F8E912ADF367F0071062F /* NegateButtonTests.swift in Sources */,
+				7B2116662FC1A03900E0B70A /* UserPreferenceMock.swift in Sources */,
 				484F8E8E2ADF367F0071062F /* SubtractionTests.swift in Sources */,
 				484F8E942ADF367F0071062F /* PercentageButtonTests.swift in Sources */,
 				484F8E8F2ADF367F0071062F /* AdditionTests.swift in Sources */,
@@ -604,7 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"123Calc/UI/View Previews/\"";
+				DEVELOPMENT_ASSET_PATHS = "\"123Calc/View/View Previews/\"";
 				DEVELOPMENT_TEAM = PLPUN94HL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -635,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"123Calc/UI/View Previews/\"";
+				DEVELOPMENT_ASSET_PATHS = "\"123Calc/View/View Previews/\"";
 				DEVELOPMENT_TEAM = PLPUN94HL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

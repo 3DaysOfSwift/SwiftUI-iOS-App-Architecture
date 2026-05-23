@@ -23,15 +23,13 @@ import XCTest
 class DisplayTests: XCTestCase {
     // MARK: - System Under Test
 
-    var sut: CalculatorAPI!
+    var sut: Calculator! // implicitly unwrapping this optional on each access of this property
 
     // MARK: - Setup And Tear Down
 
     override func setUp() {
-        sut = Calculator {
-            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to.
-            EquationBuilder(equation: Equation())
-        }
+        let mockPreference = UserPreferenceMock<Equation>() // no storing to disk in these tests
+        sut = Calculator(mockPreference)
     }
 
     override func tearDown() {

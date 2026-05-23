@@ -16,42 +16,9 @@
 
 import Foundation
 
-// MARK: - Protocol
-
-protocol EquationBuilding {
-    var result: Decimal? { get }
-    func negate()
-    func applyPercentage()
-    func enterNumber(_ number: Int)
-    func applyDecimalPoint()
-    func add()
-    func subtract()
-    func multiply()
-    func divide()
-    func execute()
-
-    var textToDisplay: String { get }
-    var rhs: Decimal? { get set }
-    var lhs: Decimal { get set }
-    var operation: MathOperation? { get set }
-    var isCompleted: Bool { get }
-    var isReadyToExecute: Bool { get }
-
-    var allowRecordingToTheHistoryLog: Bool { get }
-    var equation: EquationRepresentable { get }
-
-    var generatePrintout: String { get }
-
-    func startEditingRightHandSide()
-
-    var containsNans: Bool { get }
-
-    func pasteIn(_ decimal: Decimal)
-}
-
 // MARK: - EquationBuilder
 
-class EquationBuilder: EquationBuilding {
+class EquationBuilder {
     // MARK: - Operation Side Enum
 
     enum OperandSide {
@@ -68,7 +35,7 @@ class EquationBuilder: EquationBuilding {
 
     // MARK: - variables
 
-    private(set) var equation: EquationRepresentable
+    private(set) var equation: Equation
     private var editingSide: OperandSide = .leftHandSide
     private var isEnteringDecimal = false
     private var currentDecimalPlaces = 1
@@ -108,7 +75,7 @@ class EquationBuilder: EquationBuilding {
 
     // MARK: - Initialiser
 
-    init(equation: EquationRepresentable) {
+    init(equation: Equation) {
         self.equation = equation
         textToDisplay = formatForTextToDisplay(equation.lhs)
     }

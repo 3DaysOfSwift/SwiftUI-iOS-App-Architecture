@@ -86,7 +86,7 @@ protocol CalculatorAPI: ObservableObject {
 
     // TODO: write the documentation for these functions
     func pasteInNumber(from decimal: Decimal)
-    func pasteInNumber(from mathEquation: EquationRepresentable)
+    func pasteInNumber(from mathEquation: Equation)
 
     // MARK: - Previous Session
 
@@ -94,5 +94,5 @@ protocol CalculatorAPI: ObservableObject {
 
     // MARK: - History
 
-    var history: [EquationRepresentable] { get }
+    var history: [Equation] { get }
 }

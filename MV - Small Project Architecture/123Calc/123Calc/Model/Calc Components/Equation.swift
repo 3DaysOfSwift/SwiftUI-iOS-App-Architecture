@@ -34,28 +34,10 @@ enum MathOperation: String, Codable {
     }
 }
 
-// MARK: - Protocol
-
-protocol EquationRepresentable: Codable {
-    var lhs: Decimal { get set }
-    var rhs: Decimal? { get set }
-    var result: Decimal? { get }
-    var operation: MathOperation? { get set }
-    var isReadyToBeExecuted: Bool { get }
-    var executed: Bool { get }
-
-    mutating func execute()
-    mutating func negateLeftHandSide()
-    mutating func negateRightHandSide()
-    mutating func applyPercentageToLeftHandSide()
-    mutating func applyPercentageToRightHandSide()
-
-    func generatePrintout() -> String
-}
-
 // MARK: - Equation
 
-struct Equation: EquationRepresentable {
+struct Equation: Codable {
+    
     // MARK: - Variables
 
     var lhs: Decimal = 0
