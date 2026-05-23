@@ -2,25 +2,20 @@
 //  ClearButtonTests.swift
 //  123Calc
 //
-//  Created by 3DaysOfSwift.com on 23/09/2025.
-//
-//  3DaysOfSwift.com                → All rights reserved
-//  Website                         → https://www.3DaysOfSwift.com
+//  © 2026 3DaysOfSwift.com
+//  https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
 //  Built for professional iOS developers.
 //
-//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
-// -------------------------------------------------------------------------------------------
-//
+// --------------------------------------------------
 // → What's This File?
 //   This file contains the unit tests, which execute on the components created within the
 //   business logic layer of the app. We do not unit test the user interface (UI).
 //   Write unit tests to ensure the actual output matches the expected output for all
 //   possible known scenarios.
 //   Architectural Layer: Unit tests.
-//
-// -------------------------------------------------------------------------------------------
+// --------------------------------------------------
 
 @testable import Calc123
 import XCTest

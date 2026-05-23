@@ -13,7 +13,6 @@
 //   The business logic layer for the calculator application.
 // --------------------------------------------------
 
-
 import Foundation
 import Observation
 
@@ -29,7 +28,7 @@ extension Calculator {
 }
 
 // We could name this class "Model" which represents the "System" or "thing" that models the behaviour without any UI connected to it.
-// Model does not mean Data Model. It means, the brain 🧠 of the system - it's called the MODEL.
+// Model does not mean Data Model. It means the whole system / program that functions without UI.
 @Observable
 class Calculator: CalculatorAPI {
     // MARK: - Properties

@@ -2,22 +2,17 @@
 //  ThemeManager.swift
 //  123Calc
 //
-//  Created by 3DaysOfSwift.com on 23/09/2025.
-//
-//  3DaysOfSwift.com                → All rights reserved
-//  Website                         → https://www.3DaysOfSwift.com
+//  © 2026 3DaysOfSwift.com
+//  https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
 //  Built for professional iOS developers.
 //
-//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
-// -------------------------------------------------------------------------------------------
-//
+// --------------------------------------------------
 // → What's This File?
 //   It's a color theme manager, it stores all of our color themes.
 //   Architectural Layer: Business Logic Layer
-//
-// -------------------------------------------------------------------------------------------
+// --------------------------------------------------
 
 import Foundation
 import Observation
