@@ -150,12 +150,12 @@ class Calculator: CalculatorAPI {
             return
         }
 
-        executeMathInputController()
+        executeEquation()
     }
 
     // MARK: - Equation Execution
 
-    private func executeMathInputController() {
+    private func executeEquation() {
         equationBuilder.execute()
         updateTextToDisplay()
         appendToHistoryLog(equationBuilder)
@@ -196,14 +196,14 @@ class Calculator: CalculatorAPI {
         if equationBuilder.isCompleted == false,
            equationBuilder.isReadyToExecute
         {
-            executeMathInputController()
+            executeEquation()
             return true
         }
 
         return false
     }
 
-    private func populateMathInputControllerWithPreviousResult(_ continueEditingResult: Bool = false) {
+    private func populateEquationWithPreviousResult(_ continueEditingResult: Bool = false) {
         var newEquationBuilder = equationBuilderProvider()
         newEquationBuilder.lhs = equationBuilder.result ?? Decimal(0)
 
@@ -217,18 +217,18 @@ class Calculator: CalculatorAPI {
     private func commitAndPopulatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
         // → Scenario 1: user enters 5 * 5 *
         if commitCurrentEquationIfNeeded() {
-            populateMathInputControllerWithPreviousResult(continueEditingResult)
+            populateEquationWithPreviousResult(continueEditingResult)
         }
 
         // → secanrio 2: user enters 5 * 5 = *
         if equationBuilder.isCompleted {
-            populateMathInputControllerWithPreviousResult()
+            populateEquationWithPreviousResult()
         }
     }
 
     private func populatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
         if equationBuilder.isCompleted {
-            populateMathInputControllerWithPreviousResult(continueEditingResult)
+            populateEquationWithPreviousResult(continueEditingResult)
         }
     }
 
@@ -256,7 +256,7 @@ class Calculator: CalculatorAPI {
         guard equationBuilder.allowRecordingToTheHistoryLog else { return }
 
         guard
-            isMathInputSafeToBeSaved(equationBuilder) == true,
+            isEquationSafeToBeSaved(equationBuilder) == true,
             equationBuilder.result?.isEqual(to: .zero) == false
         else {
             return
@@ -272,8 +272,8 @@ class Calculator: CalculatorAPI {
         dataStore.deleteValue()
     }
 
-    private func isMathInputSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
-        guard equationBuilder.containsNans == false, // → crashes when encoding nans
+    private func isEquationSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
+        guard equationBuilder.containsNans == false, // → prevent a runtime error when encoding nans
               let _ = equationBuilder.result,
               equationBuilder.isCompleted
         else {
