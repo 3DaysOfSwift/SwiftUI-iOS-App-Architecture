@@ -30,7 +30,7 @@ class ThemeManager: ObservableObject {
     // MARK: - Accessing The Current Theme
 
     private var savedTheme: CalculatorTheme? // NOTE: We did not use DI - we felt there was no real reason to here (KISS)
-    private(set) var currentTheme: CalculatorTheme
+    @Published private(set) var currentTheme: CalculatorTheme
     
     // MARK: - Initialiser
 

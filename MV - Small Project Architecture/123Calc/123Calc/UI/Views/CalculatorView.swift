@@ -36,6 +36,9 @@ struct CalculatorView: View {
                 .font(.system(size: 90))
                 .minimumScaleFactor(0.5)
                 .foregroundColor(Color(hex: themeManager.currentTheme.display))
+                .onTapGesture(count: 2) {
+                    rotateToNextTheme()
+                }
             
             HStack {
                 Group {
