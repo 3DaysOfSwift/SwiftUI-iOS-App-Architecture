@@ -36,7 +36,7 @@ class ThemeManager: ObservableObject {
 
     init(_ userPreference: UserPreference) {
         self.userPreference = userPreference
-        currentTheme = themes.first ?? ThemeLoader().pinkTheme
+        currentTheme = themes.first ?? ThemeLoader().appBrandTheme
         savedTheme = currentTheme
         populateSelectionOfThemes()
         let _ = restoreSavedTheme()
@@ -105,6 +105,7 @@ class ThemeManager: ObservableObject {
     // MARK: - Set A New Theme
 
     private func updateSystemWithTheme(_ theme: CalculatorTheme) {
+        currentTheme = theme
         savedTheme = theme
         saveThemeToDisk(theme)
     }
