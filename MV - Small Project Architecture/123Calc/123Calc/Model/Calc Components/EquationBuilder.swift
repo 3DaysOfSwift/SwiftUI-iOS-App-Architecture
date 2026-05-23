@@ -76,7 +76,7 @@ class EquationBuilder: EquationBuilding {
 
     // MARK: - Display
 
-    private(set) var textToDisplay = ""
+    private(set) var textToDisplay = "" // NOTE: This is not UI, but the string value representing the current value being entered or the result being presented. This is data and not UI.
 
     private func formatForTextToDisplay(_ decimal: Decimal?) -> String {
         guard decimal?.isNaN == false else { return errorMessage }
