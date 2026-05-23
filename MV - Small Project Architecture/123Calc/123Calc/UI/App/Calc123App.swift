@@ -10,8 +10,8 @@
 //
 // --------------------------------------------------
 // → What's This File?
-//   This file creates the main window of the app and provides the first view to display.
-//   Architectural Layer: The user interface (UI) of the app.
+//   This file declares the main entry point of the app using the @main compiler attribute and the App protocol. This app struct is the declarative representation of the app object and therefore it is used to store the model. This is the type that brings both the View and the Model together - it is the glue between both horizontal layers of architecture. This type also declares the list of window groups that the app supports, which is only one for iPhone and perhaps several for macOS (or now iPadOS). The first compatible window group is the one displayed.
+//  Architectural Layer: The user interface (UI) of the app.
 // --------------------------------------------------
 
 import SwiftUI
