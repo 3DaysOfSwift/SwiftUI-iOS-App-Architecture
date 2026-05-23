@@ -1,5 +1,5 @@
 //
-//  DataStoreManager.swift
+//  UserPreferences.swift
 //  123Calc
 //
 //  © 2026 3DaysOfSwift.com

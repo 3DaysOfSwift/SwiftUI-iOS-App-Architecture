@@ -21,7 +21,7 @@ class ThemeManager: ObservableObject {
     
     // MARK: - Properties
 
-    private let dataStore = UserPreferences(key: ThemeManager.keys.dataStore)
+    private let userPreferences = UserPreferences(key: ThemeManager.keys.currentTheme)
 
     // MARK: - Theme Options
 
@@ -52,7 +52,7 @@ class ThemeManager: ObservableObject {
     private func saveThemeToDisk(_ theme: CalculatorTheme) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(theme) {
-            dataStore.set(encoded)
+            userPreferences.set(encoded)
         }
     }
 
@@ -65,7 +65,7 @@ class ThemeManager: ObservableObject {
     }
 
     private func readSavedThemeFromDisk() -> CalculatorTheme? {
-        guard let savedTheme = dataStore.getValue() as? Data else {
+        guard let savedTheme = userPreferences.getValue() as? Data else {
             return nil
         }
 

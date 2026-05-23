@@ -168,12 +168,12 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
-		482E484F2ADEFA0100A3F7D2 /* Data Store */ = {
+		482E484F2ADEFA0100A3F7D2 /* User Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				482E48502ADEFA0100A3F7D2 /* UserPreferences.swift */,
 			);
-			path = "Data Store";
+			path = "User Preferences";
 			sourceTree = "<group>";
 		};
 		482E48652ADEFA2A00A3F7D2 /* UI */ = {
@@ -299,7 +299,7 @@
 				482E483E2ADEFA0100A3F7D2 /* Calculator.swift */,
 				482E483D2ADEFA0100A3F7D2 /* Calc Components */,
 				482E48412ADEFA0100A3F7D2 /* Calc Color Themes */,
-				482E484F2ADEFA0100A3F7D2 /* Data Store */,
+				482E484F2ADEFA0100A3F7D2 /* User Preferences */,
 			);
 			path = Model;
 			sourceTree = "<group>";

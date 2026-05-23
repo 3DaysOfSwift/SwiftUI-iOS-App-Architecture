@@ -22,7 +22,7 @@ import UIKit
 extension ThemeManager {
     // store constants in enums
     enum keys {
-        static let dataStore = "3DaysOfSwift.com.calc.ThemeManager.theme"
+        static let currentTheme = "3DaysOfSwift.com.calc.ThemeManager.theme"
     }
 }
 
@@ -31,6 +31,6 @@ extension ThemeManager {
 extension Calculator {
     // store constants in enums
     enum keys {
-        static let dataStore = "3DaysOfSwift.com.calc.CalculatorEngine.total"
+        static let previousEquation = "3DaysOfSwift.com.calc.CalculatorEngine.total"
     }
 }
