@@ -16,11 +16,12 @@
 import Foundation
 import Observation
 
-// To prevent the class from being tightly-coupled to these concrete types we declared a convenience init function to be used for the usual setup for the model
+// NOTE: Calculator uses dependency injection to be initialized, which is a good architectural decision, but also makes it difficult to understand how to properly instantiate the class. It also feels a bit weird and perhaps over-the-top too. To make life easier and to simplify the code, we added a convenience init function to be used for standard setup for the model. i.e. Calculator() can now be used outside of testing and injecting in different dependencies.
+// This DI (dependency injection) feels a little like over-engineering for such a small project. This is true of many architectural patterns and principles. Perhaps only use "what you need, if you need it" and don't follow architectural rules just for the sake of it. What do you think about how-we-used it here?
 extension Calculator {
     
-    // here are the concrete types to be instantiated
     convenience init() {
+        // here are the concrete types to be instantiated in the designated initializer of the class
         self.init {
             EquationBuilder(equation: Equation())
         }
@@ -28,7 +29,7 @@ extension Calculator {
 }
 
 // We could name this class "Model" which represents the "System" or "thing" that models the behaviour without any UI connected to it.
-// Model does not mean Data Model. It means the whole system / program that functions without UI.
+// Model does not mean Data Model. It means the whole system or non-UI program that functions without any visual representation.
 @Observable
 class Calculator: CalculatorAPI {
     // MARK: - Properties
