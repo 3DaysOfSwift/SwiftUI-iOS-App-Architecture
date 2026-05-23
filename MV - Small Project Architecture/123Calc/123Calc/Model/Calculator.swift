@@ -39,7 +39,7 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Managers
 
-    private let dataStore = DataStoreManager(key: Calculator.keys.dataStore)
+    private let previousSavedEquationManager = UserPreferences(key: Calculator.keys.dataStore)
 
     // MARK: - Display
 
@@ -264,12 +264,12 @@ class Calculator: CalculatorAPI {
 
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(equationBuilder.equation) {
-            dataStore.set(encoded)
+            previousSavedEquationManager.set(encoded)
         }
     }
 
     private func deleteSavedSession() {
-        dataStore.deleteValue()
+        previousSavedEquationManager.deleteValue()
     }
 
     private func isEquationSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
@@ -283,7 +283,7 @@ class Calculator: CalculatorAPI {
     }
 
     private func readSavedEquationFromDisk() -> Equation? {
-        guard let savedEquation = dataStore.getValue() as? Data else {
+        guard let savedEquation = previousSavedEquationManager.getValue() as? Data else {
             return nil
         }
 

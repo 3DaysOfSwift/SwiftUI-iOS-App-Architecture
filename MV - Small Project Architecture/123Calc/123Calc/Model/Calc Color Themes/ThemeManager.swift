@@ -21,7 +21,7 @@ class ThemeManager: ObservableObject {
     
     // MARK: - Properties
 
-    private let dataStore = DataStoreManager(key: ThemeManager.keys.dataStore)
+    private let dataStore = UserPreferences(key: ThemeManager.keys.dataStore)
 
     // MARK: - Theme Options
 

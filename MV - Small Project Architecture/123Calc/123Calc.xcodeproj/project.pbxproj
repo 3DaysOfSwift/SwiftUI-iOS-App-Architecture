@@ -26,7 +26,7 @@
 		482E48612ADEFA0100A3F7D2 /* PinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E484C2ADEFA0100A3F7D2 /* PinkTheme.swift */; };
 		482E48622ADEFA0100A3F7D2 /* LightBlueTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E484D2ADEFA0100A3F7D2 /* LightBlueTheme.swift */; };
 		482E48632ADEFA0100A3F7D2 /* OrangeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E484E2ADEFA0100A3F7D2 /* OrangeTheme.swift */; };
-		482E48642ADEFA0100A3F7D2 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48502ADEFA0100A3F7D2 /* DataStoreManager.swift */; };
+		482E48642ADEFA0100A3F7D2 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48502ADEFA0100A3F7D2 /* UserPreferences.swift */; };
 		482E48672ADEFA8F00A3F7D2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48662ADEFA8F00A3F7D2 /* AppConstants.swift */; };
 		482E48692ADF05D500A3F7D2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48682ADF05D500A3F7D2 /* Color+Hex.swift */; };
 		484F8E8E2ADF367F0071062F /* SubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487A2ADF35B300A3F7D2 /* SubtractionTests.swift */; };
@@ -79,7 +79,7 @@
 		482E484C2ADEFA0100A3F7D2 /* PinkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinkTheme.swift; sourceTree = "<group>"; };
 		482E484D2ADEFA0100A3F7D2 /* LightBlueTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBlueTheme.swift; sourceTree = "<group>"; };
 		482E484E2ADEFA0100A3F7D2 /* OrangeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeTheme.swift; sourceTree = "<group>"; };
-		482E48502ADEFA0100A3F7D2 /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
+		482E48502ADEFA0100A3F7D2 /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		482E48662ADEFA8F00A3F7D2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		482E48682ADF05D500A3F7D2 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		482E48712ADF35B300A3F7D2 /* DisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		482E484F2ADEFA0100A3F7D2 /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
-				482E48502ADEFA0100A3F7D2 /* DataStoreManager.swift */,
+				482E48502ADEFA0100A3F7D2 /* UserPreferences.swift */,
 			);
 			path = "Data Store";
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 				482E48512ADEFA0100A3F7D2 /* Array+SafeAccess.swift in Sources */,
 				482E485E2ADEFA0100A3F7D2 /* bloodOrangeTheme.swift in Sources */,
 				482E48552ADEFA0100A3F7D2 /* Calculator.swift in Sources */,
-				482E48642ADEFA0100A3F7D2 /* DataStoreManager.swift in Sources */,
+				482E48642ADEFA0100A3F7D2 /* UserPreferences.swift in Sources */,
 				482E485D2ADEFA0100A3F7D2 /* AppBrandTheme.swift in Sources */,
 				482E485A2ADEFA0100A3F7D2 /* ThemeManager.swift in Sources */,
 				482E48542ADEFA0100A3F7D2 /* CalculatorAPI.swift in Sources */,
