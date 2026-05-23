@@ -2,22 +2,17 @@
 //  Calculator.swift
 //  123Calc
 //
-//  Created by 3DaysOfSwift.com on 23/09/2025.
-//
-//  3DaysOfSwift.com                → All rights reserved
-//  Website                         → https://www.3DaysOfSwift.com
+//  © 2026 3DaysOfSwift.com
+//  https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
-//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
-// -------------------------------------------------------------------------------------------
-//
+// --------------------------------------------------
 // → What's This File?
-//   It's the core of the calculator. The brain. It generates all of our behaviour.
-//   Architectural Layer: Business Logic Layer
-//
-// -------------------------------------------------------------------------------------------
+//   The business logic layer for the calculator application.
+// --------------------------------------------------
+
 
 import Foundation
 import Observation
@@ -36,7 +31,7 @@ extension Calculator {
 // We could name this class "Model" which represents the "System" or "thing" that models the behaviour without any UI connected to it.
 // Model does not mean Data Model. It means, the brain 🧠 of the system - it's called the MODEL.
 @Observable
-class Calculator: ModelAPI {
+class Calculator: CalculatorAPI {
     // MARK: - Properties
 
     private(set) var history: [EquationRepresentable] = []

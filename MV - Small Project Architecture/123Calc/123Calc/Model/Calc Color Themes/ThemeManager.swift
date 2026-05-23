@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------
@@ -22,15 +22,11 @@
 import Foundation
 import Observation
 
-class ThemeManager: Observable {
+class ThemeManager: ObservableObject {
     
     // MARK: - Properties
 
     private let dataStore = DataStoreManager(key: ThemeManager.keys.dataStore)
-
-    // MARK: - 👇🏽 The Singleton Design Pattern
-
-    static let shared = ThemeManager() // → 💡 Tip: This is a Singleton. The singleton design pattern is being phased out of commercial projects, however you WILL see it in industry! So let's use it in this project and gain some experience of how it works. 😃
 
     // MARK: - Theme Options
 
@@ -44,7 +40,7 @@ class ThemeManager: Observable {
     // MARK: - Initialiser
 
     init() {
-        currentTheme = themes.first ?? ThemeLoader().appBrandTheme
+        currentTheme = themes.first ?? ThemeLoader().pinkTheme
         savedTheme = currentTheme
         populateSelectionOfThemes()
         let _ = restoreSavedTheme()

@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------

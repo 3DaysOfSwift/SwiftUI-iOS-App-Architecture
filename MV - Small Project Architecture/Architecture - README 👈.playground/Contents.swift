@@ -10,7 +10,7 @@
 //:
 //: This professionally-written AppStore-quality app was structured (architected) to seperate the main "system" (also known as business-logic or the Model) and the UI. The UI (known as the presentation layer) sits as a layer on top of the main system, which is efficient if we want to change the user interface without affecting the underlying system.
 //:
-//: This means that the `ModelAPI` *(the interface to the system)* has been written as if buttons were going to be pressed to generate a basic math equation.
+//: This means that the `CalculatorAPI` *(the interface to the system)* has been written as if buttons were going to be pressed to generate a basic math equation.
 //:
 //: ![123Calc screenshot](Calc123-UI.png)
 //:

@@ -10,7 +10,7 @@
 		482E48512ADEFA0100A3F7D2 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48382ADEFA0100A3F7D2 /* Array+SafeAccess.swift */; };
 		482E48522ADEFA0100A3F7D2 /* String+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48392ADEFA0100A3F7D2 /* String+Numbers.swift */; };
 		482E48532ADEFA0100A3F7D2 /* String+Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E483A2ADEFA0100A3F7D2 /* String+Prefix.swift */; };
-		482E48542ADEFA0100A3F7D2 /* ModelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E483C2ADEFA0100A3F7D2 /* ModelAPI.swift */; };
+		482E48542ADEFA0100A3F7D2 /* CalculatorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E483C2ADEFA0100A3F7D2 /* CalculatorAPI.swift */; };
 		482E48552ADEFA0100A3F7D2 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E483E2ADEFA0100A3F7D2 /* Calculator.swift */; };
 		482E48562ADEFA0100A3F7D2 /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E483F2ADEFA0100A3F7D2 /* Equation.swift */; };
 		482E48572ADEFA0100A3F7D2 /* EquationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48402ADEFA0100A3F7D2 /* EquationBuilder.swift */; };
@@ -63,7 +63,7 @@
 		482E48382ADEFA0100A3F7D2 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		482E48392ADEFA0100A3F7D2 /* String+Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Numbers.swift"; sourceTree = "<group>"; };
 		482E483A2ADEFA0100A3F7D2 /* String+Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Prefix.swift"; sourceTree = "<group>"; };
-		482E483C2ADEFA0100A3F7D2 /* ModelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAPI.swift; sourceTree = "<group>"; };
+		482E483C2ADEFA0100A3F7D2 /* CalculatorAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorAPI.swift; sourceTree = "<group>"; };
 		482E483E2ADEFA0100A3F7D2 /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		482E483F2ADEFA0100A3F7D2 /* Equation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
 		482E48402ADEFA0100A3F7D2 /* EquationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquationBuilder.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		7B15EEC62F90DC58003EDEB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				482E483C2ADEFA0100A3F7D2 /* ModelAPI.swift */,
+				482E483C2ADEFA0100A3F7D2 /* CalculatorAPI.swift */,
 				482E483E2ADEFA0100A3F7D2 /* Calculator.swift */,
 				482E483D2ADEFA0100A3F7D2 /* Calc Components */,
 				482E48412ADEFA0100A3F7D2 /* Calc Color Themes */,
@@ -444,7 +444,7 @@
 				482E48642ADEFA0100A3F7D2 /* DataStoreManager.swift in Sources */,
 				482E485D2ADEFA0100A3F7D2 /* AppBrandTheme.swift in Sources */,
 				482E485A2ADEFA0100A3F7D2 /* ThemeManager.swift in Sources */,
-				482E48542ADEFA0100A3F7D2 /* ModelAPI.swift in Sources */,
+				482E48542ADEFA0100A3F7D2 /* CalculatorAPI.swift in Sources */,
 				482E48572ADEFA0100A3F7D2 /* EquationBuilder.swift in Sources */,
 				482E48672ADEFA8F00A3F7D2 /* AppConstants.swift in Sources */,
 			);

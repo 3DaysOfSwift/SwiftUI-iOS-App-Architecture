@@ -1,5 +1,5 @@
 //
-//  ModelAPI.swift
+//  CalculatorAPI.swift
 //  123Calc
 //
 //  Created by 3DaysOfSwift.com on 23/09/2025.
@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------
@@ -21,12 +21,12 @@
 
 import Foundation
 
-/// The ModelAPI has been written to mimick a physical calculator.
+/// The CalculatorAPI has been written to mimick a physical calculator.
 /// The interaction of the calculator takes place as if the user was pressing
 /// physical buttons on numeric keypad with values ranging between 0 - 9.
 /// This structure allows the calculator to be easily connected to a visual
 /// presentation layer (UI - user interface) on any platform (macOS, iOS, watchOS).
-protocol ModelAPI {
+protocol CalculatorAPI: ObservableObject {
     // MARK: - Misc Calculator Buttons.
 
     /// This function clears any current equation and resets all values back to 0.

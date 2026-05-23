@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------
@@ -21,22 +21,17 @@
 
 import SwiftUI
 
-// Note: EnvironmentValues is instantiated for each scene or new windowGroup
-extension EnvironmentValues {
-    @Entry var model: ModelAPI = Calculator() // each scene has its own Calculator (which is also the model in this smal app)
-    @Entry var themeManager: ThemeManager = ThemeManager() // each scene has its own ThemeManager
-}
-
 @main
 struct Calc123App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var themeManager: ThemeManager = ThemeManager()
+    @StateObject var model = Calculator() // Note: We would not ever name this "model" in a commercial app. This name is to provide clear information that the model is the calculator itself. You could rename this to calculator.
     
-//    @State private(set) var model: ModelAPI = Calculator() // if this app was more complex, we might need to store one single instance of the model. Unlike producing a new model per scene, which this app currently does.
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-//                .environment(\.model, self.model)
+                .environmentObject(model)
+                .environmentObject(themeManager)
         }
     }
 }

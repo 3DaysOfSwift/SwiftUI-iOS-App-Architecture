@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ import XCTest
 class EnteringZeroTests: XCTestCase {
     // MARK: - System Under Test
 
-    var sut: ModelAPI!
+    var sut: CalculatorAPI!
 
     // MARK: - Setup And Tear Down
 

@@ -1,7 +1,7 @@
 /*:
 ## 3 Days Of Swift Educational Software License Agreement
  
- Copyright © 2025 3 Days Of Swift 
+ Copyright © 2025 3DaysOfSwift.com
  
  All Rights Reserved.
  
@@ -253,12 +253,5 @@
  ## 21. Entire Agreement
  This agreement constitutes the entire agreement between the user and 3 Days Of Swift regarding the Software and supersedes any prior agreements or understandings.
 
-
-
- -------------------
-
- [◀  Previous Playground](@previous)
-
- -------------------
  
 */

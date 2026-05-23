@@ -8,7 +8,7 @@
 //  Website                         → https://www.3DaysOfSwift.com
 //
 //  We 🧡 Swift
-//  Welcome to our community of 3DaysOfSwift.com developers!
+//  Built for professional iOS developers.
 //
 //  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
 // -------------------------------------------------------------------------------------------
@@ -23,10 +23,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.themeManager) var themeManager: ThemeManager
-
+    @EnvironmentObject var themeManager: ThemeManager
+    
     var body: some View {
-        // It's in THIS view that you supply the Navigation View
+        // Note: It's the ContentView that should declare the Navigation View
         NavigationView {
             CalculatorView()
         }
