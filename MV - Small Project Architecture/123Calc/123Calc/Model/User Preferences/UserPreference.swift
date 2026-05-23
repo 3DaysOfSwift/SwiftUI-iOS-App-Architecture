@@ -21,7 +21,7 @@
 
 import Foundation
 
-struct UserPreferences {
+struct UserPreference {
     // MARK: - Unique Key
 
     let key: String

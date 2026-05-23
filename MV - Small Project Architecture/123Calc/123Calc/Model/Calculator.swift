@@ -22,7 +22,8 @@ extension Calculator {
     
     convenience init() {
         // here are the concrete types to be instantiated in the designated initializer of the class
-        self.init {
+        let userPreference = UserPreference(key: Calculator.keys.previousEquation)
+        self.init(userPreference) {
             EquationBuilder(equation: Equation())
         }
     }
@@ -40,7 +41,7 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Managers
 
-    private let userPreferences = UserPreferences(key: Calculator.keys.previousEquation)
+    private let userPreference: UserPreference
 
     // MARK: - Display
 
@@ -65,10 +66,10 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Initialiser
 
-    init(_ equationBuilder: @escaping (() -> EquationBuilding)) {
-        equationBuilderProvider = equationBuilder
+    init(_ userPreference: UserPreference, _ equationBuilder: @escaping (() -> EquationBuilding)) {
+        self.userPreference = userPreference
+        self.equationBuilderProvider = equationBuilder
         self.equationBuilder = equationBuilder()
-        
     }
     
     deinit {
@@ -265,12 +266,12 @@ class Calculator: CalculatorAPI {
 
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(equationBuilder.equation) {
-            userPreferences.set(encoded)
+            userPreference.set(encoded)
         }
     }
 
     private func deleteSavedSession() {
-        userPreferences.deleteValue()
+        userPreference.deleteValue()
     }
 
     private func isEquationSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
@@ -284,7 +285,7 @@ class Calculator: CalculatorAPI {
     }
 
     private func readSavedEquationFromDisk() -> Equation? {
-        guard let savedEquation = userPreferences.getValue() as? Data else {
+        guard let savedEquation = userPreference.getValue() as? Data else {
             return nil
         }
 
