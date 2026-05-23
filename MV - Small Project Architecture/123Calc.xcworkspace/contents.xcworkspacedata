@@ -5,7 +5,7 @@
       location = "group:123Calc/123Calc.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Architecture - README &#x1f448;.playground">
+      location = "group:Layered Architecture.playground">
    </FileRef>
    <FileRef
       location = "group:Terms And Conditions.playground">
