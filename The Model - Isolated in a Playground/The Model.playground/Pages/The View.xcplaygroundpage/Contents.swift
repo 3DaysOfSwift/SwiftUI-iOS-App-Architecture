@@ -8,7 +8,7 @@
 //:
 //: We have placed the model inside its own Model.swift file and placed it within the Sources folder for this playground page.
 //:
-//: This is a great way to properly visualise the true divide betweent the model and the view, because they are now physically divided and this restriction will prevent developers from confusing which is which.
+//: This is a great way to properly visualise the true divide between the model and the view, because they are now physically divided and this restriction will prevent developers from confusing which is which.
 //:
 //: ![Playground Sources Folder](SourcesFolder.png)
 /*:
@@ -32,18 +32,20 @@ let calculator = Calculator()
 calculator.enterOne()
 calculator.enterZero()
 calculator.enterDecimalState()
-calculator.enterZero()
 calculator.enterOne()
 calculator.add()
 calculator.enterZero()
 calculator.enterDecimalState()
-calculator.enterZero()
 calculator.enterNine()
-calculator.execute()
-
-print("10.01 + 0.09 = \(calculator.result!)") // 👈 Execute here
+print("10.1 + 0.9 = \(calculator.execute())") // 👈 Execute here
 
 calculator.clear()
+
+//
+calculator.enterSix()
+calculator.add()
+calculator.enterFour()
+print("6 + 4 = \(calculator.execute())") // 👈 Execute here
 
 
 //:
