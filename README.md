@@ -83,6 +83,6 @@ Read our Xcode playground conversion only at [3DaysOfSwift.com](https://www.3Day
 
 © 2026 [3DaysOfSwift.com](https://www.3DaysOfSwift.com). All rights reserved.
 
-Welcome to the [3DaysOfSwift.com](https://www.3DaysOfSwift.com) community of iOS developers!
+Built for professional iOS developers.
 
-👩🏿‍💻🧑🏻‍💻🙋🏿‍♀️🧑🏼‍💻👩🏼‍💼👩🏽‍💻🧑🏿‍💻💁🏼‍♀️👩🏼‍💻👨🏼‍💻👨🏽‍💻🙋🏽‍♂️👩🏻‍💻🧑🏾‍💻👩🏻‍💻👩🏾‍💻👨🏼‍💻🙋🏻‍♂️👨🏿‍💻👩🏿‍💻👨🏻‍💻🙋🏻‍♀️👩🏼‍💻🧑🏿‍💻🙋🏼‍♂️
+👩🏿‍💻🧑🏻‍💻🙋🏿‍♀️🧑🏼‍💻👩🏼‍💼👩🏽‍💻🧑🏿‍💻💁🏼‍♀️👩🏼‍💻👨🏼‍💻👨🏽‍💻🙋🏽‍♂️👩🏻‍💻🧑🏾‍💻👩🏻‍💻👩🏾‍💻👨🏼‍💻🙋🏻‍♂️👨🏿‍💻🙋🏼‍♂️
