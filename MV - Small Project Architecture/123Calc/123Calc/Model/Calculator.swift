@@ -16,14 +16,6 @@
 import Foundation
 import Observation
 
-// NOTE: Calculator uses dependency injection to be initialized, which is a good architectural decision, but also makes it difficult to understand how to properly instantiate the class. It also feels a bit weird and perhaps over-the-top too. To make life easier and to simplify the code, we added a convenience init function to be used for standard setup for the model. i.e. Calculator() can now be used outside of testing and injecting in different dependencies.
-extension Calculator {
-    
-    convenience init() {
-        let userPreference = UserPreference<Equation>(key: Calculator.keys.previousEquation)
-        self.init(userPreference)
-    }
-}
 
 // We could name this class "Model" which represents the "System" or "thing" that models the behaviour of the entire program without any UI connected to it.
 // Model does not mean Data Model. It means the whole system or non-UI program that functions without any visual representation.
@@ -239,17 +231,13 @@ class Calculator: CalculatorAPI {
     func restoreFromLastSession() -> Bool {
         guard
             let lastExecutedEquation = readSavedEquationFromDisk(),
-            let lastExecutedResult = lastExecutedEquation.result
+            let _ = lastExecutedEquation.result
         else {
             return false
         }
 
-        let newEquationBuilder = newEquationBuilder()
-        newEquationBuilder.lhs = Decimal(1)
-        newEquationBuilder.multiply()
-        newEquationBuilder.rhs = lastExecutedResult
-        newEquationBuilder.execute()
-        equationBuilder = newEquationBuilder
+        equationBuilder = EquationBuilder(equation: lastExecutedEquation)
+        equationBuilder.execute()
         updateTextToDisplay()
         return true
     }
@@ -259,6 +247,7 @@ class Calculator: CalculatorAPI {
             equationBuilder.allowRecordingToTheHistoryLog,
             isEquationSafeToBeSaved(equationBuilder) == true,
             equationBuilder.result?.isEqual(to: .zero) == false
+                // TODO: Can nil == false
         else {
             return
         }

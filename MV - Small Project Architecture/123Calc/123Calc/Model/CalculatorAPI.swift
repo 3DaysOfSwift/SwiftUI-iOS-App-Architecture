@@ -89,7 +89,8 @@ protocol CalculatorAPI: ObservableObject {
     func pasteInNumber(from mathEquation: Equation)
 
     // MARK: - Previous Session
-
+    
+    /// Call this function after initialization to load the value from the previous session
     func restoreFromLastSession() -> Bool
 
     // MARK: - History

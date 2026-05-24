@@ -47,6 +47,9 @@ struct UserPreference<T: Codable>: UserPreferenceStoring {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(value) {
             UserDefaults.standard.set(encoded, forKey: key)
+            // Save and write the .plist file to disk
+            // The system automatically does this when app enters background, but not if you terminate the app
+            UserDefaults.standard.synchronize()
         }
     }
 

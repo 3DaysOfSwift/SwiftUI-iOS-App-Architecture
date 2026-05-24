@@ -20,7 +20,12 @@ import SwiftUI
 struct Calc123App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var themeManager: ThemeManager = ThemeManager(UserPreference(key: ThemeManager.keys.currentTheme))
-    @StateObject var model = Calculator() // Note: We would not ever name this "model" in a commercial app. This name is to provide clear information that the model is the calculator itself. You could rename this to calculator.
+    @StateObject var model = {
+        let userPreference = UserPreference<Equation>(key: Calculator.keys.previousEquation)
+        let model = Calculator(userPreference)
+        let _ = model.restoreFromLastSession()
+        return model
+    }()
     
     var body: some Scene {
         WindowGroup {

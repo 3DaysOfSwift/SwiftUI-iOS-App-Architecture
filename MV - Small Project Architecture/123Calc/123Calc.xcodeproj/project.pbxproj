@@ -48,6 +48,7 @@
 		48EB96952A377988003BA4BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96942A377988003BA4BA /* Preview Assets.xcassets */; };
 		7B15EECA2F90DEAE003EDEB4 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15EEC92F90DEAE003EDEB4 /* CalculatorView.swift */; };
 		7B2116662FC1A03900E0B70A /* UserPreferenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */; };
+		7B21166C2FC2C5F100E0B70A /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B21166A2FC2C5F100E0B70A /* UserPreferencesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		48EB969A2A377988003BA4BA /* 123CalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 123CalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B15EEC92F90DEAE003EDEB4 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceMock.swift; sourceTree = "<group>"; };
+		7B21166A2FC2C5F100E0B70A /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				482E487E2ADF35B300A3F7D2 /* Numeric Pin Pad */,
 				482E48742ADF35B300A3F7D2 /* Clear Negate and Percentage */,
 				482E48702ADF35B300A3F7D2 /* Visual Display */,
+				7B21166B2FC2C5F100E0B70A /* User Preferences */,
 			);
 			path = 123CalcTests;
 			sourceTree = "<group>";
@@ -331,6 +334,14 @@
 				7B2116652FC1A02E00E0B70A /* UserPreferenceMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7B21166B2FC2C5F100E0B70A /* User Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				7B21166A2FC2C5F100E0B70A /* UserPreferencesTests.swift */,
+			);
+			path = "User Preferences";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B21166C2FC2C5F100E0B70A /* UserPreferencesTests.swift in Sources */,
 				484F8E902ADF367F0071062F /* ClearButtonTests.swift in Sources */,
 				484F8E9A2ADF367F0071062F /* MultiplyTests.swift in Sources */,
 				484F8E912ADF367F0071062F /* NegateButtonTests.swift in Sources */,

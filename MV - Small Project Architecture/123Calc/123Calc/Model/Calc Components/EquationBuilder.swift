@@ -77,7 +77,16 @@ class EquationBuilder {
 
     init(equation: Equation) {
         self.equation = equation
-        textToDisplay = formatForTextToDisplay(equation.lhs)
+        let valueToDisplay: Decimal = {
+            if let result = equation.result {
+                return result
+            } else if let rightOperand = equation.rhs {
+                return rightOperand
+            } else {
+                return equation.lhs
+            }
+        }()
+        textToDisplay = formatForTextToDisplay(valueToDisplay)
     }
 
     // MARK: - Completed Equation
