@@ -19,10 +19,7 @@ import Foundation
 final class CalculatorView_ViewModel: ObservableObject { // Remember, this is the ViewModel of the CalculatorView
     
     // MARK: - Model
-    
-    private var calc: Calculator {
-        Calculator.shared
-    }
+    private let calc: Calculator
     
     // MARK: - Display
     
@@ -31,7 +28,8 @@ final class CalculatorView_ViewModel: ObservableObject { // Remember, this is th
     // MARK: - Initialiser
     
     init() {
-        textToDisplay = Calculator.shared.textToDisplay
+        self.calc = Calculator.shared
+        textToDisplay = calc.textToDisplay
     }
     
     private func syncDisplayWithModel() {

@@ -17,6 +17,7 @@
 import SwiftUI
 
 struct CalculatorView: View {
+    
     // MARK: Datasource Properties
     
     @StateObject private var viewModel = CalculatorView_ViewModel()
