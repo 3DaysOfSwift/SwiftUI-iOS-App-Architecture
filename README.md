@@ -32,17 +32,6 @@ The View is the presentation layer of the application and this playground demons
 A shared Model.swift file stored within the Sources folder is used to separate the model implementation from the playground presentation code, helping demonstrate how SwiftUI views can interact with underlying program it represents.
 
 
-## MVC Tip 💡
-
-As some small advice, and many years working in engineering, it is clear that the architecture spoken about and the architecture implemented are two separate topics. They very rarely match or meet expectations. Instead of trying to match MV or MVVM directly I would simply understand the importance of separating the UI from the Model and follow the thoughts of those SmallTalk 80 developers back in 1979 who originally coined the notion of adding a layer of (using horizontal layered architecture) visual components onto of a working and existing system. Do not mix them. 
-
-All programs (the Model) will use a fully custom architecture that you will have to learn and adapt to. 
-
-Don’t try to “get it right”, but instead, just divide the View from the Model and create a custom solution for the program following the main architectural principles and philosophies; DRY, WET, KISS, SOLID (out-of-date but still a fantastic principle), Single responsibility, Separation of Concerns (SoC), Composition over inheritance, Dependency Injection (DI), Inversion of Control (IOC) etc. 
-
-You’ll do fine. Good luck.
-
-
 ------------------------
 
 Download this Xcode playground at [3DaysOfSwift.com](https://www.3DaysOfSwift.com).
