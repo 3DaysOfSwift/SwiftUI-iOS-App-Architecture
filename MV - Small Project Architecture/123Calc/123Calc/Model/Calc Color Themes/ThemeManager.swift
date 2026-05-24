@@ -57,6 +57,7 @@ class ThemeManager: ObservableObject {
     private func restoreSavedTheme() -> Bool {
         if let previousTheme = userPreferenceForCurrentTheme.get() {
             savedTheme = previousTheme
+            currentTheme = previousTheme
             return true
         }
         return false
