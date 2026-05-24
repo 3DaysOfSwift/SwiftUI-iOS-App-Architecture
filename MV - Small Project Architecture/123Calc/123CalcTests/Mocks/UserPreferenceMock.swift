@@ -22,7 +22,7 @@
 import Foundation
 @testable import Calc123
 
-class UserPreferenceMock<T: Codable>: PreferencePersistable {
+class UserPreferenceMock<T: Codable>: UserPreferenceStoring {
     
     // MARK: - Unique Key
 

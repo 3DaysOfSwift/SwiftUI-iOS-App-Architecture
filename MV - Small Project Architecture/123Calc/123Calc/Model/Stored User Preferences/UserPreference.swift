@@ -21,8 +21,7 @@
 
 import Foundation
 
-// TODO: Rename this to UserPreferenceStoring
-protocol PreferencePersistable<T> {
+protocol UserPreferenceStoring<T> {
     associatedtype T: Codable
     
     func set(_ value: T)
@@ -32,7 +31,7 @@ protocol PreferencePersistable<T> {
     func delete()
 }
 
-struct UserPreference<T: Codable>: PreferencePersistable {
+struct UserPreference<T: Codable>: UserPreferenceStoring {
     
     // MARK: - Unique Key
 

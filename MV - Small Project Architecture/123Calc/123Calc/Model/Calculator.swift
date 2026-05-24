@@ -37,7 +37,7 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Managers
 
-    private let userPreferenceForLastEquation: any PreferencePersistable<Equation>
+    private let userPreferenceForLastEquation: any UserPreferenceStoring<Equation>
 
     // MARK: - Display
 
@@ -62,7 +62,7 @@ class Calculator: CalculatorAPI {
 
     // MARK: - Initialiser
 
-    init(_ userPreference: any PreferencePersistable<Equation>) {
+    init(_ userPreference: any UserPreferenceStoring<Equation>) {
         self.userPreferenceForLastEquation = userPreference
         self.equationBuilder = EquationBuilder(equation: Equation())
     }
